@@ -6,7 +6,7 @@ form.addEventListener('reset', filter)
 form.addEventListener('change', filter)
 
 function filter(dateTime) {
-    if (!fromInput.value || !dateTime) return
+    if (!fromInput.value && !dateTime) return
     const fromDate = dateTime || new Date(fromInput.value)
     if (!fromDate) return
 
