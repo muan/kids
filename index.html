@@ -1,0 +1,44 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./index.js" defer></script>
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"/>
+    <title>Kid stuff</title>
+</head>
+<body class="pa4 sans-serif">
+    <header class="mw8 w-100 center">
+        <h1>Kid stuff</h1>
+    </header>
+    <main class="mw8 w-100 center">
+        <form method="get" class="mb4">
+            <input type="date" name="from" data-from-date>
+            <button>filter</button>
+            <button type="reset">reset</button>
+        </form>
+        <table class="w-100 ba b--near-white collapse">
+            <thead>
+                <tr>
+                    <th class="pa3 bb b--near-white">date</th>
+                    <th class="pa3 bb b--near-white">title</th>
+                    <th class="pa3 bb b--near-white">location</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for event in site.data.events %}
+            <tr class="striped--near-white" data-datetime="{{ event.datetime }}" data-event>
+                <td class="pa3">{{ event.datetime | date: "%Y/%m/%d %k:%M" }}</td>
+                <td class="pa3">{{ event.title }}</td>
+                <td class="pa3"><a href="https://www.google.com/maps/search/{{ event.location }}">{{ event.location }}</a></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
