@@ -2,13 +2,10 @@ const form = document.querySelector('form')
 const fromInput = document.querySelector('[data-from-date]')
 const events = document.querySelectorAll('[data-event]')
 
-form.addEventListener('reset', filter)
+form.addEventListener('reset', showAll)
 form.addEventListener('change', filter)
 
 async function filter() {
-    // wait for reset
-    await new Promise(resolve => setTimeout(resolve, 0))
-
     if (!fromInput.value) { showAll(); return }
     const fromDate = new Date(fromInput.value)
     if (!fromDate) { showAll(); return }
