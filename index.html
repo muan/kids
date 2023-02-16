@@ -31,7 +31,7 @@
             </thead>
             <tbody>
             {% for event in site.data.events %}
-            <tr class="striped--near-white" data-datetime="{{ event.datetime }}" data-event>
+            <tr class="striped--near-white" data-datetime="{{ event.datetime | date_to_xmlschema }}" data-event>
                 <td class="pa3">{{ event.datetime | date: "%Y/%m/%d %k:%M" }}</td>
                 <td class="pa3">{{ event.title }}</td>
                 <td class="pa3"><a href="https://www.google.com/maps/search/{{ event.location }}">{{ event.location }}</a></td>
